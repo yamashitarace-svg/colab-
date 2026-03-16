@@ -1,0 +1,27 @@
+name: Daily Python Run
+
+on:
+  schedule:
+    # 毎日 日本時間 AM 9:00 (UTC 0:00) に実行
+    - cron: '0 0 * * *'
+  workflow_dispatch: # 手動実行ボタンを表示させる設定
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: リポジトリのコードを取得
+        uses: actions/checkout@v3
+
+      - name: Pythonのセットアップ
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: 必要なライブラリのインストール
+        run: |
+          pip install pandas requests
+          # 他にColabで使っていたライブラリがあればここに追記してください
+
+      - name: Pythonスクリプトの実行
+        run: python main.py
