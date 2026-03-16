@@ -10,7 +10,7 @@ Original file is located at
 # ============================================================
 # セル1: インストール & 認証
 # ============================================================
-!pip install -q gspread google-auth requests beautifulsoup4 chardet
+
 
 from google.colab import auth
 auth.authenticate_user()
