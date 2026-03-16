@@ -18,10 +18,9 @@ jobs:
         with:
           python-version: '3.9'
 
-      - name: 必要なライブラリのインストール
+- name: 必要なライブラリのインストール
         run: |
-          pip install pandas requests
-          # 他にColabで使っていたライブラリがあればここに追記してください
+          pip install gspread google-auth requests beautifulsoup4 chardet
 
       - name: Pythonスクリプトの実行
         run: python main.py
